@@ -1,0 +1,3 @@
+[submodule "cs-studio"]
+	path = cs-studio
+	url = https://github.com/ControlSystemStudio/cs-studio
