@@ -1,3 +1,15 @@
 [submodule "cs-studio"]
 	path = cs-studio
 	url = https://github.com/ControlSystemStudio/cs-studio
+[submodule "cs-studio-thirdparty"]
+	path = cs-studio-thirdparty
+	url = https://github.com/ControlSystemStudio/cs-studio-thirdparty
+[submodule "maven-osgi-bundles"]
+	path = maven-osgi-bundles
+	url = https://github.com/ControlSystemStudio/maven-osgi-bundles
+[submodule "org.csstudio.product"]
+	path = org.csstudio.product
+	url = https://github.com/ControlSystemStudio/org.csstudio.product
+[submodule "org.csstudio.sns"]
+	path = org.csstudio.sns
+	url = https://github.com/ControlSystemStudio/org.csstudio.sns
