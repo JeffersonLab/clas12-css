@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.csstudio</groupId>
+    <artifactId>clas12</artifactId>
+    <version>BUILD-VERSION</version>
+  </parent>
+  <groupId>org.csstudio</groupId>
+  <artifactId>clas12-plugins</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>org.csstudio.basic.epics.product</module>
+    <module>org.csstudio.diag.pvfields.clas12</module> 
+    <module>org.csstudio.diag.pvutil</module>
+    <module>org.csstudio.diag.pvutil.clas12</module>
+    <module>org.csstudio.diag.rack</module>
+    <module>org.csstudio.diag.rack.clas12</module>
+    <module>org.csstudio.imagej</module>
+    <module>org.csstudio.logbook.clas12</module>
+    <module>org.csstudio.clas12.mpsbypasses</module>
+    <module>org.csstudio.mps.clas12</module>
+    <module>org.csstudio.clas12.pvnames</module>
+    <module>org.csstudio.utility.chat</module>
+    <module>org.csstudio.clas12.product</module>
+  </modules>
+</project>
