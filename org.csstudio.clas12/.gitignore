@@ -1,0 +1,13 @@
+
+# Sometimes created
+workspace/
+/plugin_customization.ini
+
+# Output of maven
+plugins/*/target/
+features/*/target/
+repository/target/
+
+# Ignore IDE settings
+.settings/
+repository/plugin_customization.ini

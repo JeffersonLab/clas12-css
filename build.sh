@@ -9,7 +9,7 @@ export CSS_TOP=$TOP
 # order matters!!!
 MODULES="cs-studio/core \
     cs-studio/applications \
-    org.csstudio.sns"
+    org.csstudio.clas12"
 
 start=$(date +"%s")
 cols=`tput cols`

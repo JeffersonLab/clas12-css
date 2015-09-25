@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.csstudio.sns.feature.pydev"
+      label="PyDev Support"
+      version="1.0.0.qualifier">
+
+   <description>
+      Snapshot of PyDev for SNS CSS
+   </description>
+
+   <copyright>
+      Copyright (c) 2013 Oak Ridge National Laboratory, OAK RIDGE,
+TN, USA. All rights reserved.
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      You must accept this license agreement in order to install and use this
+software.
+
+THIS SOFTWARE IS PROVIDED UNDER THIS LICENSE ON AN &quot;../AS IS&quot;
+BASIS. 
+WITHOUT WARRANTY OF ANY KIND, EXPRESSED OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+For details, see http://www.eclipse.org/legal/epl-v10.html
+   </license>
+
+   <url>
+      <update label="SNS CSS Update Site" url="http://ics-web.sns.ornl.gov/css/updates/"/>
+   </url>
+
+   <!-- Including the "real" PyDev results in generated SNS repo containing a
+        mirror of required PyDev plugins.
+        SNS beam lines etc. can then install PyDev from local repo without
+        firewall problems.
+        3.9.0.201411111611 - Newer, but also has newer jython, resulting in class loader errors
+     -->
+   <includes
+         id="org.python.pydev.feature"
+         version="3.6.0.201406232321"/>
+
+   <requires>
+   </requires>
+
+   <!-- Also list dependencies of PyDev which would ordinarily
+        resolved when installing PyDev, but won't be available
+        when installing org.csstudio.sns.feature.pydev without
+        general web access
+     -->
+   <plugin
+         id="org.eclipse.debug.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.debug.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>
