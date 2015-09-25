@@ -1,2 +1,5 @@
 ## editor backups
 *~
+
+## maven local repo
+.m2/
