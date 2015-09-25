@@ -1,5 +1,6 @@
 <!-- Maven settings.xml -->
 <settings>
+  <localRepository>${CSS_TOP}/.m2/repository</localRepository>
   <profiles>
     <profile>
       <id>my-css-settings</id>
