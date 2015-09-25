@@ -3,3 +3,6 @@
 
 ## maven local repo
 .m2/
+
+## maven created targets
+target/
