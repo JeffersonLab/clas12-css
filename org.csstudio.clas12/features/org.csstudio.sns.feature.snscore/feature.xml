@@ -6,7 +6,7 @@
       provider-name="Kay Kasemir &lt;kasemirk@ornl.gov&gt;, Xihui Chen &lt;chenx1@ornl.gov&gt; - SNS">
 
    <description>
-      Core CSS components for SNS used by many applications:
+      Core CSS components for CLAS12 used by many applications:
 SNS ELog, ...
    </description>
 
@@ -43,5 +43,19 @@ For details, see http://www.eclipse.org/legal/epl-v10.html
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="org.csstudio.platform.jaasAuthentication"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.csstudio.platform.jaasAuthentication.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
