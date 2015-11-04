@@ -6,3 +6,7 @@
 
 ## maven created targets
 target/
+
+## zip files post-build
+downloads/
+
