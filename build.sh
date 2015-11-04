@@ -4,10 +4,11 @@ TOP=`pwd`
 # used in settings.xml
 export CSS_TOP=$TOP
 # maven base command
-MVN_CMD="mvn --debug --settings $TOP/settings.xml"
+#MVN_CMD="mvn --debug --settings $TOP/settings.xml"
+MVN_CMD="mvn --settings $TOP/settings.xml"
 
 # order matters!!!
-MODULES="cs-studio/core cs-studio/applications org.csstudio.clas12"
+MODULES="org.csstudio.clas12"
 
 start=$(date +"%s")
 cols=`tput cols`
@@ -47,10 +48,6 @@ while [ "$#" -gt 0 ]; do
     esac
 done
 
-if [ $ALL -ne 1 ]; then
-    MODULES="org.csstudio.clas12"
-fi
-
 if [ $REBUILD -eq 1 ]; then
     MVN_CMD="$MVN_CMD clean verify"
 elif [ $CLEAN_ONLY -eq 1 ]; then
@@ -87,7 +84,7 @@ tdiff=$(($end-$start))
 printbar
 if [ $FAILED -eq 0 ]; then
     printf "\nBuild successful\n\n"
-    printf "Copying zip files..."
+    printf "Copying needed zip files to downloads/..."
     cd $TOP
     cp org.csstudio.clas12/repository/target/products/*zip ./downloads
     printf "Done\n"
