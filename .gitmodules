@@ -1,6 +1,0 @@
-[submodule "cs-studio"]
-	path = cs-studio
-	url = https://github.com/ControlSystemStudio/cs-studio
-[submodule "org.csstudio.sns"]
-	path = org.csstudio.sns
-	url = https://github.com/ControlSystemStudio/org.csstudio.sns
