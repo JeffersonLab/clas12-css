@@ -10,3 +10,5 @@ target/
 ## zip files post-build
 downloads/
 
+##
+tests/sns-css-4.1.1
