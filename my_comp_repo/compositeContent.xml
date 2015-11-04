@@ -5,9 +5,10 @@
     <property name='p2.atomic.composite.loading' value='false'/>
   </properties>
   <children size="4">
-    <child location="http://download.controlsystemstudio.org/maven-osgi-bundles/4.1"/>
-    <child location="http://download.controlsystemstudio.org/thirdparty/4.1"/>
-    <child location="../cs-studio/core/p2repo"/>
-    <child location="../cs-studio/applications/p2repo"/>
+    <child location="http://download.controlsystemstudio.org/maven-osgi-bundles/4.2"/>
+    <child location="http://download.controlsystemstudio.org/thirdparty/4.2"/>
+    <child location="http://diirt.download.controlsystemstudio.org/diirt/3.0.1"/>
+    <child location="http://download.controlsystemstudio.org/core/4.2"/>
+    <child location="http://download.controlsystemstudio.org/applications/4.2"/>
   </children>
 </repository>
