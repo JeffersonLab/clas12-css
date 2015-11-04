@@ -86,7 +86,16 @@ if [ $FAILED -eq 0 ]; then
     printf "\nBuild successful\n\n"
     printf "Copying needed zip files to downloads/..."
     cd $TOP
+<<<<<<< HEAD
     cp org.csstudio.clas12/repository/target/products/*zip ./downloads
+=======
+    if [ ! -d downloads ]; then
+        mkdir downloads
+    fi
+    cp org.csstudio.clas12/repository/target/products/alarm*zip ./downloads
+    cp org.csstudio.clas12/repository/target/products/jms2rdb*zip ./downloads
+    cp org.csstudio.clas12/repository/target/products/sns*zip ./downloads
+>>>>>>> 84bc4d5... build.sh: create downloads/ if needed
     printf "Done\n"
 else
     printf "\nBuild failed\n\n"
