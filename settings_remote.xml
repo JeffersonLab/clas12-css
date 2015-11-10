@@ -12,7 +12,7 @@
              local repositories.
           -->
         <!-- Path to your composite repo -->
-        <csstudio.composite.repo>${CSS_TOP}/css_repo</csstudio.composite.repo>
+        <csstudio.composite.repo>${CSS_TOP}/css_repo_remote</csstudio.composite.repo>
 
         <!-- By default, even if you use a composite repo
              that lists local P2 sites,

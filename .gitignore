@@ -10,5 +10,8 @@ target/
 ## zip files post-build
 downloads/
 
+## cs-studio clone
+cs-studio/
+
 ##
 tests/sns-css-4.1.1

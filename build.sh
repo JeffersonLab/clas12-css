@@ -3,25 +3,20 @@
 TOP=`pwd`
 # used in settings.xml
 export CSS_TOP=$TOP
-# maven base command
-#MVN_CMD="mvn --debug --settings $TOP/settings.xml"
-MVN_CMD="mvn --settings $TOP/settings.xml"
-
-# order matters!!!
-MODULES="org.csstudio.clas12"
 
 start=$(date +"%s")
 cols=`tput cols`
 ALL=0
+LOCAL=0
 REBUILD=0
 CLEAN_ONLY=0
 FAILED=0
 
 function usage {
-    echo "Usage: $0 [-a | --all] [-r | --rebuild] [-c | --clean]"
+    echo "Usage: $0 [-a | --all] [-l | --local] [-r | --rebuild] [-c | --clean]"
     echo ""
     echo "  -a: use all modules, not just clas12"
-    echo "      Module list: $MODULES"
+    echo "  -l: use local, build from source (default: remote, downloads everything)"
     echo "  -r: use 'mvn clean verify' to rebuild"
     echo "  -c: use 'mvn clean' only"
     echo ""
@@ -37,16 +32,39 @@ function printbar {
 while [ "$#" -gt 0 ]; do
     case "$1" in
         -a) ALL=1; shift 1;;
+        -l) LOCAL=1; shift 1;;
         -r) REBUILD=1; shift 1;;
         -c) CLEAN_ONLY=1; shift 1;;
         -h) usage; exit 1;;
         --all) ALL=1; shift 1;;
+        --local) LOCAL=1; shift 1;;
         --rebuild) REBUILD=1; shift 1;;
         --clean) CLEAN_ONLY=1; shift 1;;
         --help) usage; exit 1;;
         -*) echo "Unknown option: $1" >&2; exit 1;;
     esac
 done
+
+if [ $LOCAL -eq 1 ]; then
+    # order matters!!
+    MODULES="cs-studio/core cs-studio/applications org.csstudio.clas12"
+    MVN_SETTINGS=$TOP/settings_local.xml
+    if [ -d cs-studio ]; then
+        cd cs-studio
+        git pull origin 4.1.x
+    else 
+        git clone https://github.com/controlsystemstudio/cs-studio
+        cd cs-studio
+        git checkout 4.1.x
+    fi
+    cd ..
+else
+    MODULES=org.csstudio.clas12
+    MVN_SETTINGS=$TOP/settings_remote.xml
+fi
+
+# maven base command
+MVN_CMD="mvn --settings $MVN_SETTINGS"
 
 if [ $REBUILD -eq 1 ]; then
     MVN_CMD="$MVN_CMD clean verify"
