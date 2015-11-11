@@ -1,4 +1,3 @@
-#setenv JAVA_HOME /usr/lib/jvm/java-1.8.0
-setenv JAVA_HOME /usr/lib/jvm/java-1.8.0-oracle-1.8.0.51.x86_64/jre
+setenv JAVA_HOME /usr/lib/jvm/java-1.8.0
 setenv PATH "${JAVA_HOME}/bin:${PATH}"
 setenv MAVEN_OPTS "-Xms2048m -Xmx4096m"
