@@ -11,6 +11,10 @@ LOCAL=0
 REBUILD=0
 CLEAN_ONLY=0
 FAILED=0
+OFFLINE=0
+CLIENT=0
+NOPLUGINUPDATES=0
+NOSNAPSHOTUPDATES=0
 
 function usage {
     echo "Usage: $0 [-a | --all] [-l | --local] [-r | --rebuild] [-c | --clean]"
@@ -19,6 +23,10 @@ function usage {
     echo "  -l: use local, build from source (default: remote, downloads everything)"
     echo "  -r: use 'mvn clean verify' to rebuild"
     echo "  -c: use 'mvn clean' only"
+    echo "  -o: offline mode"
+    echo "  -C: client mode"
+    echo "  -p: no plugin updates mode"
+    echo "  -s: no snapshot updates mode"
     echo ""
     echo "Defaults will run the build on the CLAS12 module only.  Rebuilding all"
     echo "modules can take up to 1hr."
@@ -35,11 +43,19 @@ while [ "$#" -gt 0 ]; do
         -l) LOCAL=1; shift 1;;
         -r) REBUILD=1; shift 1;;
         -c) CLEAN_ONLY=1; shift 1;;
+        -o) OFFLINE=1; shift 1;;
+        -C) CLIENT=1; shift 1;;
+        -p) NOPLUGINUPDATES=1; shift 1;;
+        -s) NOSNAPSHOTUPDATES=1; shift 1;;
         -h) usage; exit 1;;
         --all) ALL=1; shift 1;;
         --local) LOCAL=1; shift 1;;
         --rebuild) REBUILD=1; shift 1;;
         --clean) CLEAN_ONLY=1; shift 1;;
+        --offline) OFFLINE=1; shift 1;;
+        --client) CLIENT=1; shift 1;;
+        --nopluginupdates) NOPLUGINUPDATES=1; shift 1;;
+        --nosnapshotupdates) NOSNAPSHOTUPDATES=1; shift 1;;
         --help) usage; exit 1;;
         -*) echo "Unknown option: $1" >&2; exit 1;;
     esac
@@ -63,8 +79,25 @@ else
     MVN_SETTINGS=$TOP/settings_remote.xml
 fi
 
-# maven base command
-MVN_CMD="mvn --settings $MVN_SETTINGS"
+MVN_CMD="mvn"
+
+if [ $OFFLINE -eq 1 ]; then
+    MVN_CMD="$MVN_CMD --offline"
+fi
+
+if [ $CLIENT -eq 1 ]; then
+    MVN_CMD="$MVN_CMD -client"
+fi
+
+if [ $NOPLUGINUPDATES -eq 1 ]; then
+    MVN_CMD="$MVN_CMD --no-plugin-updates"
+fi
+
+if [ $NOSNAPSHOTUPDATES -eq 1 ]; then
+    MVN_CMD="$MVN_CMD --no-snapshot-updates"
+fi
+
+MVN_CMD="$MVN_CMD --settings $MVN_SETTINGS"
 
 if [ $REBUILD -eq 1 ]; then
     MVN_CMD="$MVN_CMD clean verify"
